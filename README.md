@@ -2,7 +2,7 @@
 
 ## Task description
 
-Implement a [IsAllergicTo](AllergyTest/Allergies.cs#L27) method that determines on base on the allergy test score for the given person whether or not they're allergic to a given item and a [AllergensList](AllergyTest/Allergies.cs#L36) method that determines their full list of allergies. Allergy test is represented by a single numeric score which contains the information about all the allergies the person has (that they were tested for). The list of allergens for test are ([Allergens](AllergyTest/Allergens.cs#L6)):
+Implement a [IsAllergicTo](AllergyTest/Allergies.cs#L26) method that determines on base on the allergy test score for the given person whether or not they're allergic to a given item and a [AllergensList](AllergyTest/Allergies.cs#L36) method that determines their full list of allergies. Allergy test is represented by a single numeric score which contains the information about all the allergies the person has (that they were tested for). The list of allergens for test are ([Allergens](AllergyTest/Allergens.cs#L6)):
 - eggs (with value `1`)
 - peanuts (with value `2`)
 - shellfish (with value `4`)
