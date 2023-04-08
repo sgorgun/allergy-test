@@ -7,6 +7,8 @@ namespace AllergyTest
     /// </summary>
     public class Allergies
     {
+        private readonly int score;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Allergies"/> class with test score.
         /// </summary>
@@ -14,8 +16,12 @@ namespace AllergyTest
         /// <exception cref="ArgumentException">Thrown when score is less than zero.</exception>
         public Allergies(int score)
         {
-            // TODO Implement this constructor.
-            throw new NotImplementedException();
+            if (score < 0)
+            {
+                throw new ArgumentException($"{score} is less than zero.", nameof(score));
+            }
+
+            this.score = score;
         }
 
         /// <summary>
@@ -25,8 +31,7 @@ namespace AllergyTest
         /// <returns>true if there is an allergy to this allergen, false otherwise.</returns>
         public bool IsAllergicTo(Allergens allergens)
         {
-            // TODO Implement this method.
-            throw new NotImplementedException();
+            return ((int)allergens & this.score) != 0;
         }
 
         /// <summary>
@@ -35,8 +40,16 @@ namespace AllergyTest
         /// <returns>Full list of allergies of the person with given allergy test score.</returns>
         public Allergens[] AllergensList()
         {
-            // TODO Implement this method.
-            throw new NotImplementedException();
+            List<Allergens> allergensList = new List<Allergens>();
+            foreach (Allergens allergen in Enum.GetValues(typeof(Allergens)))
+            {
+                if (this.IsAllergicTo(allergen))
+                {
+                    allergensList.Add(allergen);
+                }
+            }
+
+            return allergensList.ToArray();
         }
     }
 }
